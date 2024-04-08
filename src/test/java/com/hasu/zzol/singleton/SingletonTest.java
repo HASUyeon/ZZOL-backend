@@ -10,12 +10,12 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 public class SingletonTest {
     @Test
     @DisplayName("순수 DI 컨테이너")
-    void pureContainer(){
+    void pureContainer() {
         AppConfig appConfig = new AppConfig();
         MemberService memberService1 = appConfig.memberService();
         MemberService memberService2 = appConfig.memberService();
 
-        System.out.println("memberService 1 = "+ memberService1);
+        System.out.println("memberService 1 = " + memberService1);
         System.out.println("memberService 2 = " + memberService2);
         Assertions.assertThat(memberService1).isNotSameAs(memberService2);
 

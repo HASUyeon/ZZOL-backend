@@ -11,6 +11,7 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 public class MemberServiceTest {
     AnnotationConfigApplicationContext ac = new AnnotationConfigApplicationContext(AppConfig.class);
     MemberService memberService = ac.getBean("memberService", MemberService.class);
+
     @Test
     @DisplayName("회원가입 테스트")
     void sighUp() {
