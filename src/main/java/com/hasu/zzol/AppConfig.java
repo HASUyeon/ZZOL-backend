@@ -1,9 +1,9 @@
 package com.hasu.zzol;
 
-import com.hasu.zzol.member.MemberRepository;
-import com.hasu.zzol.member.MemberService;
-import com.hasu.zzol.member.MemberServiceImpl;
-import com.hasu.zzol.member.MemoryMemberRepositoryImpl;
+import com.hasu.zzol.domain.member.MemberRepository;
+import com.hasu.zzol.domain.member.MemberService;
+import com.hasu.zzol.domain.member.MemberServiceImpl;
+import com.hasu.zzol.domain.member.MemoryMemberRepositoryImpl;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 

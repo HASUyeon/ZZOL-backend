@@ -1,4 +1,4 @@
-package com.hasu.zzol.member;
+package com.hasu.zzol.domain.member;
 
 public class MemberServiceImpl implements MemberService {
     private final MemberRepository memberRepository;

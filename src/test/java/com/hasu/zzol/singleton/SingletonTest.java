@@ -1,7 +1,7 @@
 package com.hasu.zzol.singleton;
 
 import com.hasu.zzol.AppConfig;
-import com.hasu.zzol.member.MemberService;
+import com.hasu.zzol.domain.member.MemberService;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;

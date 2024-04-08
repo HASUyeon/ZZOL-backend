@@ -1,4 +1,4 @@
-package com.hasu.zzol.member;
+package com.hasu.zzol.domain.member;
 
 public interface MemberRepository {
     void save(Member member);

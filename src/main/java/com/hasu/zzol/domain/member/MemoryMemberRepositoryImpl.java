@@ -1,4 +1,4 @@
-package com.hasu.zzol.member;
+package com.hasu.zzol.domain.member;
 
 import java.util.HashMap;
 import java.util.Map;
