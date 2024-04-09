@@ -1,5 +1,10 @@
 package com.hasu.zzol.domain.member;
 
+import org.springframework.stereotype.Service;
+
+import java.util.Optional;
+
+@Service
 public class MemberServiceImpl implements MemberService {
     private final MemberRepository memberRepository;
 
@@ -8,12 +13,17 @@ public class MemberServiceImpl implements MemberService {
     }
 
     @Override
-    public void signUp(Member member) {
-        memberRepository.save(member);
+    public void signUp(MemberDto memberDto) {
+        Member member = new Member();
+        System.out.println(member);
+        System.out.println(memberDto);
+        member.updateMember(memberDto.getNickname(), memberDto.getTotalScore(), memberDto.getRegDate());
+        System.out.println(member);
+        this.memberRepository.save(member);
     }
 
     @Override
-    public Member findMember(Long memberId) {
+    public Optional<Member> findMember(Long memberId) {
         return memberRepository.findById(memberId);
     }
 }

@@ -1,7 +1,12 @@
 package com.hasu.zzol.domain.member;
 
-public interface MemberRepository {
-    void save(Member member);
+import jakarta.annotation.Nonnull;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
-    Member findById(Long memberId);
+import java.util.Optional;
+
+@Repository
+public interface MemberRepository extends JpaRepository<Member, Long> {
+    public Optional<Member> findById(@Nonnull Long Id);
 }

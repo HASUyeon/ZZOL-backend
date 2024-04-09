@@ -1,20 +1,32 @@
 package com.hasu.zzol.domain.member;
 
+import jakarta.persistence.*;
 import lombok.Getter;
-import lombok.Setter;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 @Getter
-@Setter
+@NoArgsConstructor
+@ToString
+@Entity
+@Table(name = "member")
 public class Member {
-    private Long id;
+    @Id
+    @Column(name = "member_id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long memberId;
+    @Column
     private String nickname;
+    @Column(name = "total_score")
     private Long totalScore;
+    @Column(name = "reg_date")
     private String regDate;
 
-    public Member(Long id, String nickname, Long totalScore, String regDate) {
-        this.id = id;
+
+    public void updateMember(String nickname, Long totalScore, String regDate) {
         this.nickname = nickname;
         this.totalScore = totalScore;
         this.regDate = regDate;
     }
+
 }

@@ -1,7 +1,9 @@
 package com.hasu.zzol.domain.member;
 
-public interface MemberService {
-    void signUp(Member member);
+import java.util.Optional;
 
-    Member findMember(Long memberId);
+public interface MemberService {
+    void signUp(MemberDto member);
+
+    Optional<Member> findMember(Long memberId);
 }
