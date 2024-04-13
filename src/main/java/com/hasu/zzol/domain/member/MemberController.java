@@ -3,6 +3,7 @@ package com.hasu.zzol.domain.member;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Optional;
 
 @RestController
@@ -14,6 +15,11 @@ public class MemberController {
     public void signUp(@RequestBody MemberDto memberDto) {
         System.out.println(memberDto);
         memberService.signUp(memberDto);
+    }
+
+    @GetMapping("/member")
+    public List<Member> getAll() {
+        return memberService.findAll();
     }
 
     @GetMapping("/member/{memberId}")

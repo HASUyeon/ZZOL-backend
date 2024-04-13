@@ -1,9 +1,11 @@
 package com.hasu.zzol.domain.member;
 
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -23,10 +25,14 @@ public class MemberServiceImpl implements MemberService {
     }
 
     @Override
+    public List<Member> findAll() {
+        return memberRepository.findAll(Sort.by(Sort.Direction.DESC, "memberId"));
+    }
+
+    @Override
     public Optional<Member> findMember(Long memberId) {
         return memberRepository.findById(memberId);
     }
-
 
     @Override
     public void putMember(Long memberId, MemberDto memberDto) {
