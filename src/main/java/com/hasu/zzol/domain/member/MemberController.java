@@ -20,4 +20,9 @@ public class MemberController {
     public Optional<Member> getMember(@PathVariable Long memberId) {
         return memberService.findMember(memberId);
     }
+
+    @PutMapping("/member/{memberId}")
+    public void putMember(@PathVariable Long memberId, @RequestBody MemberDto memberDto) {
+        memberService.putMember(memberId, memberDto);
+    }
 }

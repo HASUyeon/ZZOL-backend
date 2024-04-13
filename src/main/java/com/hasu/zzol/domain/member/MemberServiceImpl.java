@@ -18,15 +18,23 @@ public class MemberServiceImpl implements MemberService {
     public void signUp(MemberDto memberDto) {
         Member member = new Member();
         DateTimeFormatter format = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
-        System.out.println(member);
-        System.out.println(memberDto);
-        member.updateMember(memberDto.getNickname(), memberDto.getTotalScore(), LocalDateTime.now().format(format));
-        System.out.println(member);
+        member.updateMember(memberDto.getNickname(), 0L, LocalDateTime.now().format(format));
         this.memberRepository.save(member);
     }
 
     @Override
     public Optional<Member> findMember(Long memberId) {
         return memberRepository.findById(memberId);
+    }
+
+
+    @Override
+    public void putMember(Long memberId, MemberDto memberDto) {
+        memberRepository.findById(memberId).map(member -> {
+            String nickname = Optional.ofNullable(memberDto.getNickname()).orElse(member.getNickname());
+            Long totalScore =   Optional.ofNullable(memberDto.getTotalScore()).orElse(member.getTotalScore());
+            member.updateMember(nickname, totalScore, member.getRegDate());
+            return memberRepository.save(member);
+        });
     }
 }
