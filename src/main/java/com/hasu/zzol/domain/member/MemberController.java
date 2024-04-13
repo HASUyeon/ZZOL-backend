@@ -17,7 +17,7 @@ public class MemberController {
         memberService.signUp(memberDto);
     }
 
-    @GetMapping("/member")
+    @GetMapping("/member/list")
     public List<Member> getAll() {
         return memberService.findAll();
     }
