@@ -1,5 +1,6 @@
 package com.hasu.zzol.domain.member;
 
+import com.hasu.zzol.global.exception.DataNotFoundException;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
@@ -41,7 +42,7 @@ public class MemberServiceImpl implements MemberService {
             Long totalScore = Optional.ofNullable(memberDto.getTotalScore()).orElse(member.getTotalScore());
             member.updateMember(nickname, totalScore, member.getRegDate());
             return memberRepository.save(member);
-        });
+        }).orElseThrow(() -> new DataNotFoundException("member not found"));
     }
 
     @Override
