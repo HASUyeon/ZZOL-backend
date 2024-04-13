@@ -32,9 +32,14 @@ public class MemberServiceImpl implements MemberService {
     public void putMember(Long memberId, MemberDto memberDto) {
         memberRepository.findById(memberId).map(member -> {
             String nickname = Optional.ofNullable(memberDto.getNickname()).orElse(member.getNickname());
-            Long totalScore =   Optional.ofNullable(memberDto.getTotalScore()).orElse(member.getTotalScore());
+            Long totalScore = Optional.ofNullable(memberDto.getTotalScore()).orElse(member.getTotalScore());
             member.updateMember(nickname, totalScore, member.getRegDate());
             return memberRepository.save(member);
         });
+    }
+
+    @Override
+    public void deleteMember(Long memberId) {
+        memberRepository.deleteById(memberId);
     }
 }
